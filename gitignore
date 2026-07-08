@@ -1,0 +1,112 @@
+# ===================================
+# Python
+# ===================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ===================================
+# Databricks
+# ===================================
+.databricks/
+.dbx/
+.dbx-project/
+.databricks-connect
+*.dbc
+
+# Spark / Delta
+spark-warehouse/
+metastore_db/
+derby.log
+_delta_log/
+
+# ===================================
+# Build
+# ===================================
+build/
+dist/
+*.egg-info/
+
+# ===================================
+# Logs
+# ===================================
+logs/
+log/
+*.log
+*.out
+
+# ===================================
+# Environment Variables
+# ===================================
+.env
+.env.*
+*.env
+
+# ===================================
+# Azure
+# ===================================
+.azure/
+.azureml/
+
+# Secrets
+secrets/
+credentials/
+*.pem
+*.key
+*.pfx
+*.cer
+service_account*.json
+*.json.key
+
+# ===================================
+# Editors
+# ===================================
+.vscode/
+.idea/
+
+# ===================================
+# Operating System
+# ===================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===================================
+# Temporary Files
+# ===================================
+*.tmp
+*.bak
+*.swp
+.cache/
+
+# ===================================
+# Data Files
+# ===================================
+*.parquet
+*.delta
+*.crc
+
+# Ignore local datasets
+data/
+datasets/
+raw/
+landing/
+
+# Keep folder structure if needed
+!data/.gitkeep
+!datasets/.gitkeep
+
+# ===================================
+# Testing
+# ===================================
+.pytest_cache/
+.coverage
+htmlcov/
