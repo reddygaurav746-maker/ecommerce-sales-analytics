@@ -22,16 +22,7 @@ The project follows modern Data Engineering best practices including:
 
 ---
 
-## Project Status
 
-| Layer | Status |
-|---------|---------|
-| Bronze Layer | ✅ Completed |
-| Silver Layer | ✅ Completed |
-| Gold Layer | 🚧 In Progress |
-| Power BI Dashboard | 🚧 Planned |
-
----
 
 # High Level Architecture
 
@@ -82,7 +73,7 @@ These datasets simulate a real-world online retail environment.
 The Low Level Design provides a detailed view of every stage in the ETL pipeline, including ingestion, transformations, orchestration, monitoring, optimization and validation.
 
 <p align="center">
-<img src="./diagrams/LLD.jpeg" width="100%">
+<img src="./daigrams/LLD.jpeg" width="100%">
 </p>
 
 ---
@@ -118,8 +109,6 @@ The project follows the Medallion Architecture consisting of Bronze, Silver and 
 - Source File Tracking
 - Delta Table Creation
 
-**Status:** ✅ Completed
-
 ---
 
 ## Silver Layer (Cleaned)
@@ -150,7 +139,6 @@ The project follows the Medallion Architecture consisting of Bronze, Silver and 
 - silver_product_categories
 - silver_sellers
 
-**Status:** ✅ Completed
 
 ---
 
@@ -165,7 +153,6 @@ The project follows the Medallion Architecture consisting of Bronze, Silver and 
 - Category Dimension
 - Date Dimension
 
-**Status:** 🚧 Under Development
 
 ---
 
@@ -174,7 +161,7 @@ The project follows the Medallion Architecture consisting of Bronze, Silver and 
 The following diagram illustrates every table created across the Bronze, Silver and Gold layers, including logging and analytics tables.
 
 <p align="center">
-<img src="./diagrams/LOT.png" width="100%">
+<img src="./daigrams/LOT.png" width="100%">
 </p>
 
 ---
@@ -184,7 +171,7 @@ The following diagram illustrates every table created across the Bronze, Silver 
 The Gold Layer is designed using a Star Schema consisting of one Fact table and multiple Dimension tables to support high-performance analytical queries.
 
 <p align="center">
-<img src="./diagrams/DMD.jpeg" width="100%">
+<img src="./daigrams/DMD.jpeg" width="100%">
 </p>
 
 ---
@@ -285,10 +272,9 @@ ecommerce-sales-analytics
 
 # Author
 
-## Gaurav Reddy
+## sai Gaurav Reddy
 
 Azure Data Engineer | Databricks | PySpark | Delta Lake | Data Engineering
 
----
 
-⭐ **If you found this repository useful, consider giving it a Star.**
+
