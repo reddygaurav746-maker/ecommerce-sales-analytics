@@ -38,7 +38,7 @@ The project follows modern Data Engineering best practices including:
 The following diagram illustrates the complete end-to-end architecture of the platform, showing how data flows from source files into Azure Databricks through the Medallion Architecture before reaching the reporting layer.
 
 <p align="center">
-<img src="./diagrams/HLD.jpeg" width="100%">
+<img src="./daigrams/HLD.jpeg" width="100%">
 </p>
 
 ---
