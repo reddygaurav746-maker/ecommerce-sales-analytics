@@ -1,4 +1,5 @@
 # E-Commerce Sales Analytics Platform
+
 ### Azure Databricks • PySpark • Delta Lake • Medallion Architecture
 
 ---
@@ -9,15 +10,15 @@ This project implements an **end-to-end E-Commerce Sales Analytics Platform** us
 
 The pipeline ingests raw e-commerce datasets, performs scalable ETL transformations, and prepares business-ready data for analytics and reporting.
 
-The project follows industry-standard Data Engineering practices including:
+The project follows modern Data Engineering best practices including:
 
-- Incremental data ingestion
-- Data validation
-- Data quality checks
-- Schema enforcement
-- Logging & auditing
-- Layered Medallion Architecture
-- Delta Lake storage
+- Incremental Data Ingestion
+- Data Validation
+- Data Quality Checks
+- Schema Enforcement
+- Logging & Auditing
+- Delta Lake Storage
+- Medallion Architecture
 
 ---
 
@@ -28,66 +29,42 @@ The project follows industry-standard Data Engineering practices including:
 | Bronze Layer | ✅ Completed |
 | Silver Layer | ✅ Completed |
 | Gold Layer | 🚧 In Progress |
-| Dashboard | 🚧 Planned |
+| Power BI Dashboard | 🚧 Planned |
 
 ---
 
 # High Level Architecture
 
-The High Level Design illustrates the complete end-to-end data engineering workflow.
+The following diagram illustrates the complete end-to-end architecture of the platform, showing how data flows from source files into Azure Databricks through the Medallion Architecture before reaching the reporting layer.
 
 <p align="center">
-<img src="diagrams/HLD.png" width="100%">
-</p>
-
----
-
-# Low Level Architecture
-
-The Low Level Design shows every processing stage inside the platform.
-
-<p align="center">
-<img src="diagrams/LLD.png" width="100%">
-</p>
-
----
-
-# Database Design (Table Structure)
-
-This diagram represents all tables designed across the Bronze, Silver and Gold layers.
-
-<p align="center">
-<img src="diagrams/LOT.png" width="100%">
-</p>
-
----
-
-# Star Schema Design
-
-The Gold Layer follows a **Star Schema** model for fast analytical querying.
-
-<p align="center">
-<img src="diagrams/DMD.png" width="100%">
+<img src="./diagrams/HLD.jpeg" width="100%">
 </p>
 
 ---
 
 # Objectives
 
-- Build an enterprise-grade ETL pipeline
-- Implement Medallion Architecture
+The primary objectives of this project are:
+
+- Build a scalable enterprise ETL pipeline
+- Implement the Medallion Architecture
 - Process raw e-commerce datasets
 - Clean and standardize incoming data
 - Create analytics-ready datasets
 - Improve data quality
-- Support future reporting and dashboards
-- Follow scalable Data Engineering practices
+- Support future Power BI dashboards
+- Follow industry-standard Data Engineering practices
 
 ---
 
 # Dataset
 
-## Source Files
+## Dataset Source
+
+The project uses an E-Commerce Sales dataset containing multiple CSV files representing customers, orders, products, payments and sellers.
+
+## Datasets Used
 
 - customers_dataset.csv
 - orders_dataset.csv
@@ -96,23 +73,35 @@ The Gold Layer follows a **Star Schema** model for fast analytical querying.
 - sellers_dataset.csv
 - category_translation.csv
 
-These datasets simulate a real-world online retail platform.
+These datasets simulate a real-world online retail environment.
+
+---
+
+# Low Level Architecture
+
+The Low Level Design provides a detailed view of every stage in the ETL pipeline, including ingestion, transformations, orchestration, monitoring, optimization and validation.
+
+<p align="center">
+<img src="./diagrams/LLD.jpeg" width="100%">
+</p>
 
 ---
 
 # Medallion Architecture
 
+The project follows the Medallion Architecture consisting of Bronze, Silver and Gold layers.
+
 ## Bronze Layer (Raw)
 
-**Purpose**
+### Purpose
 
 - Store raw data exactly as received
-- Preserve original records
+- Preserve source data
 - Maintain ingestion history
 - Add metadata columns
 - Enable traceability
 
-**Tables**
+### Tables
 
 - bronze_customers
 - bronze_orders
@@ -121,21 +110,38 @@ These datasets simulate a real-world online retail platform.
 - bronze_product_categories
 - bronze_sellers
 
+### Operations
+
+- Raw Data Ingestion
+- Metadata Creation
+- Batch ID Generation
+- Source File Tracking
+- Delta Table Creation
+
 **Status:** ✅ Completed
 
 ---
 
 ## Silver Layer (Cleaned)
 
-**Purpose**
+### Purpose
 
 - Clean incoming datasets
 - Remove duplicate records
-- Standardize data types
 - Handle missing values
+- Standardize data types
 - Prepare business-ready datasets
 
-**Output Tables**
+### Transformations
+
+- Data Cleaning
+- Deduplication
+- Null Handling
+- Data Type Casting
+- Standardization
+- Business Rule Validation
+
+### Output Tables
 
 - silver_customers
 - silver_orders
@@ -150,7 +156,7 @@ These datasets simulate a real-world online retail platform.
 
 ## Gold Layer (Analytics)
 
-**Planned**
+### Planned Objects
 
 - Fact Sales
 - Customer Dimension
@@ -163,26 +169,61 @@ These datasets simulate a real-world online retail platform.
 
 ---
 
+# Layer-wise Table Design
+
+The following diagram illustrates every table created across the Bronze, Silver and Gold layers, including logging and analytics tables.
+
+<p align="center">
+<img src="./diagrams/LOT.png" width="100%">
+</p>
+
+---
+
+# Database Design (Star Schema)
+
+The Gold Layer is designed using a Star Schema consisting of one Fact table and multiple Dimension tables to support high-performance analytical queries.
+
+<p align="center">
+<img src="./diagrams/DMD.jpeg" width="100%">
+</p>
+
+---
+
 # Data Quality Checks
+
+The pipeline performs multiple validation checks before loading data.
+
+Implemented validations include:
 
 - Schema Validation
 - Null Value Checks
 - Duplicate Detection
 - Data Type Validation
 - Record Count Validation
+- Source File Validation
 
 ---
 
 # Logging & Auditing
 
+The project captures execution details throughout the ETL process.
+
 Audit tables include:
 
 - Pipeline Logs
+- Audit Logs
 - Error Logs
-- Audit Pipeline
 - Data Quality Results
 
-Tracked fields include Pipeline Name, Batch ID, Execution Time, Status, Rows Processed, Error Message, and Source File.
+Tracked information includes:
+
+- Pipeline Name
+- Batch ID
+- Execution Time
+- Job Status
+- Rows Processed
+- Source File
+- Error Messages
 
 ---
 
@@ -198,13 +239,15 @@ ecommerce-sales-analytics
 │   └── gold
 │
 ├── datasets
+│
 ├── diagrams
-│   ├── HLD.png
-│   ├── LLD.png
+│   ├── HLD.jpeg
+│   ├── LLD.jpeg
 │   ├── LOT.png
-│   └── DMD.png
+│   └── DMD.jpeg
 │
 ├── README.md
+│
 └── .gitignore
 ```
 
@@ -213,32 +256,39 @@ ecommerce-sales-analytics
 # Technologies Used
 
 | Category | Technology |
-|-----------|------------|
+|------------|----------------------------|
 | Cloud | Microsoft Azure |
 | Processing | Azure Databricks |
 | Language | Python |
 | Framework | PySpark |
 | Storage | Delta Lake |
+| Data Format | CSV |
+| Architecture | Medallion Architecture |
 | Catalog | Unity Catalog |
-| Version Control | Git & GitHub |
+| Version Control | Git |
+| Repository | GitHub |
 
 ---
 
 # Future Enhancements
 
-- Gold Layer
-- Star Schema
+- Gold Layer Implementation
+- Star Schema Completion
 - Power BI Dashboard
 - Databricks Workflows
-- CI/CD
+- Incremental Data Loading
+- CI/CD Pipeline
+- Unit Testing
 - Performance Optimization
 
 ---
 
 # Author
 
-**Gaurav Reddy**
+## Gaurav Reddy
 
-Azure Data Engineer | Databricks | PySpark | Delta Lake
+Azure Data Engineer | Databricks | PySpark | Delta Lake | Data Engineering
 
-⭐ If you found this repository useful, consider giving it a Star.
+---
+
+⭐ **If you found this repository useful, consider giving it a Star.**
