@@ -1,0 +1,31 @@
+-- Databricks notebook source
+-- MAGIC %python
+-- MAGIC display(
+-- MAGIC     spark.sql("""
+-- MAGIC     DESCRIBE HISTORY gold_catalog.gold_sch.fact_sales
+-- MAGIC     """)
+-- MAGIC )
+-- MAGIC
+-- MAGIC display(
+-- MAGIC     spark.sql("""
+-- MAGIC     SELECT *
+-- MAGIC     FROM gold_catalog.gold_sch.fact_sales
+-- MAGIC     VERSION AS OF 0
+-- MAGIC     """)
+-- MAGIC )
+-- MAGIC
+-- MAGIC display(
+-- MAGIC     spark.sql("""
+-- MAGIC     SELECT *
+-- MAGIC     FROM gold_catalog.gold_sch.fact_sales
+-- MAGIC     TIMESTAMP AS OF '2026-07-06 09:05:31'
+-- MAGIC     """)
+-- MAGIC )
+-- MAGIC
+-- MAGIC display(
+-- MAGIC     spark.sql("""
+-- MAGIC     SELECT *
+-- MAGIC     FROM gold_catalog.gold_sch.fact_sales
+-- MAGIC     VERSION AS OF 0
+-- MAGIC     """)
+-- MAGIC )
